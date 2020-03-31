@@ -9,12 +9,20 @@ class Home extends Component {
 		posts: {}
 	}
 
-	componentDidMount(){
+	componentDidMount = () => {
+		this.updateResult();
+	}
+
+	updateResult = () =>{
 		axios.get("https://corona.lmao.ninja/all").then((resp) => {
-		this.setState({
+			this.setState({
 				posts: resp.data
 			})
 		})
+	}
+
+	handleOnClick = (e) =>{
+		this.updateResult();
 	}
 
 
@@ -37,6 +45,7 @@ class Home extends Component {
 				<div className="alert alert-info" role="alert">
 					Total active: {this.state.posts.active}
 				</div>
+				<button onClick={this.handleOnClick}>Refresh</button>
 			</div>
 		);
 	}
