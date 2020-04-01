@@ -34,10 +34,10 @@ class Country extends Component {
 				</div>
 				<div className="card-body">
 					<div className="row">
-						<div className="col">
+						<div className="col mt-3">
 							<div class="card bg-white mb-3 ">
 								<div class="card-body">
-									<ReactFlagsSelect defaultCountry="IN" onSelect={this.onSelectFlag} />
+									<ReactFlagsSelect defaultCountry="IN" onSelect={this.onSelectFlag} searchable={true}/>
 								</div>
 							</div>
 						</div>
