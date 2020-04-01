@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import $ from 'jquery'
-import ReactFlagsSelect from 'react-flags-select';
 import Card from './card'
-
-//import css module
-import 'react-flags-select/css/react-flags-select.css';
-
-//OR import sass module
-// import 'react-flags-select/scss/react-flags-select.scss';
-
-
+import Country from './country'
 
 class Home extends Component {
 
@@ -63,6 +54,9 @@ class Home extends Component {
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className="col-md-12 mt-4">
+					<Country/>
 				</div>
 			</div>
 		);
