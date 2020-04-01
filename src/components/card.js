@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class Card extends Component {
-
 	render() {
 		return (
 			<div className={"card bg-light mb-3 " + this.props.textColor} >

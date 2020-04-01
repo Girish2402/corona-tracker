@@ -35,8 +35,8 @@ class Country extends Component {
 				<div className="card-body">
 					<div className="row">
 						<div className="col mt-3">
-							<div class="card bg-white mb-3 ">
-								<div class="card-body">
+							<div className="card bg-white mb-3 ">
+								<div className="card-body">
 									<ReactFlagsSelect defaultCountry="IN" onSelect={this.onSelectFlag} searchable={true}/>
 								</div>
 							</div>
