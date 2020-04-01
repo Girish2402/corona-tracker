@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import $ from 'jquery'
 import ReactFlagsSelect from 'react-flags-select';
+import Card from './card'
 
 //import css module
 import 'react-flags-select/css/react-flags-select.css';
@@ -48,36 +49,16 @@ class Home extends Component {
 						<div className="card-body">
 							<div className="row">
 								<div className="col-md-3">
-									<div className="card bg-light mb-3" >
-										<div className="card-header">Total Cases</div>
-										<div className="card-body">
-											<h5 className="card-title">{this.state.posts.cases}</h5>
-										</div>
-									</div>
+									<Card textColor="" title="Total Cases" count={this.state.posts.cases} />
 								</div>
 								<div className="col-md-3">
-									<div className="card bg-light mb-3 text-info">
-										<div className="card-header">Active Cases</div>
-										<div className="card-body">
-											<h5 className="card-title">{this.state.posts.active}</h5>
-										</div>
-									</div>
+									<Card textColor="text-info" title="Active Cases" count={this.state.posts.active} />
 								</div>
 								<div className="col-md-3">
-									<div className="card bg-light mb-3 text-success">
-										<div className="card-header">Recovered</div>
-										<div className="card-body">
-											<h5 className="card-title">{this.state.posts.recovered}</h5>
-										</div>
-									</div>
+									<Card textColor="text-success" title="Recovered" count={this.state.posts.recovered} />
 								</div>
 								<div className="col-md-3">
-									<div className="card bg-light mb-3 text-danger" >
-										<div className="card-header">Deaths</div>
-										<div className="card-body">
-											<h5 className="card-title">{this.state.posts.deaths}</h5>
-										</div>
-									</div>
+									<Card textColor="text-danger" title="Deaths" count={this.state.posts.deaths}/>
 								</div>
 							</div>
 						</div>
