@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import $ from 'jquery'
+import ReactFlagsSelect from 'react-flags-select';
+
+//import css module
+import 'react-flags-select/css/react-flags-select.css';
+
+//OR import sass module
+// import 'react-flags-select/scss/react-flags-select.scss';
 
 
 
@@ -11,6 +19,7 @@ class Home extends Component {
 
 	componentDidMount = () => {
 		this.updateResult();
+		// $('select').selectpicker();
 	}
 
 	updateResult = () =>{
@@ -28,24 +37,52 @@ class Home extends Component {
 
 	render() {
 		return (
-			<div classNmae="jumbotron">
-				<h1 classNmae="display-4">Hello, world!</h1>
-				<p classNmae="lead">This is a simple Corona Tracker App, We are here to serve you the latest update.</p>
-				<hr classNmae="my-4"/>
-				<p>Cases Across the globe.</p>
-				<div className="alert alert-primary" role="alert">
-					Total Cases: {this.state.posts.cases}
+			<div className="row mt-4">
+				<div className="col-md-12">
+					<div className="card text-center">
+						<div className="card-header">
+							<h3>
+								Cases Across The Globe
+							</h3>
+						</div>
+						<div className="card-body">
+							<div className="row">
+								<div className="col-md-3">
+									<div className="card bg-light mb-3" >
+										<div className="card-header">Total Cases</div>
+										<div className="card-body">
+											<h5 className="card-title">{this.state.posts.cases}</h5>
+										</div>
+									</div>
+								</div>
+								<div className="col-md-3">
+									<div className="card bg-light mb-3 text-info">
+										<div className="card-header">Active Cases</div>
+										<div className="card-body">
+											<h5 className="card-title">{this.state.posts.active}</h5>
+										</div>
+									</div>
+								</div>
+								<div className="col-md-3">
+									<div className="card bg-light mb-3 text-success">
+										<div className="card-header">Recovered</div>
+										<div className="card-body">
+											<h5 className="card-title">{this.state.posts.recovered}</h5>
+										</div>
+									</div>
+								</div>
+								<div className="col-md-3">
+									<div className="card bg-light mb-3 text-danger" >
+										<div className="card-header">Deaths</div>
+										<div className="card-body">
+											<h5 className="card-title">{this.state.posts.deaths}</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div className="alert alert-danger" role="alert">
-					Total Deaths: {this.state.posts.deaths}
-				</div>
-				<div className="alert alert-success" role="alert">
-					Total Recovered: {this.state.posts.recovered}
-				</div>
-				<div className="alert alert-info" role="alert">
-					Total active: {this.state.posts.active}
-				</div>
-				<button onClick={this.handleOnClick}>Refresh</button>
 			</div>
 		);
 	}
