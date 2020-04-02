@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Card from './card'
 import Country from './country'
+import WorldMap from './world_map';
 
 class Home extends Component {
 
@@ -62,6 +63,9 @@ class Home extends Component {
 				</div>
 				<div className="col-md-12 mt-4">
 					<Country/>
+				</div>
+				<div className="col-md-12 mt-4">
+					<WorldMap/>
 				</div>
 			</div>
 		);
