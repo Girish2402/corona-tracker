@@ -1,23 +1,30 @@
 
 import React, { Component } from 'react';
 import { VectorMap } from "react-jvectormap"
-// import $ from 'jquery'
+import axios from 'axios'
 const { getCode, getName, getData } = require("country-list");
-const mapData = {
-	CN: 100000,
-	IN: 9900,
-	SA: 86,
-	EG: 70,
-	SE: 0,
-	FI: 0,
-	FR: 0,
-	US: 20,
-};
 
 class WorldMap extends Component {
+
+	state = {
+		mapData: {
+			CN: 100000,
+			IN: 9900,
+		}
+	}
+
 	componentDidMount() {
 		console.log(getName('IS'));
-		console.log(getData())
+		console.log(getData());
+		let data = {};
+		axios.get("https://corona.lmao.ninja/countries").then((resp) => {
+			resp.data.map(function (e) {
+				data[getCode(e.country)] = e.cases
+			})
+			this.setState({
+				mapData: data
+			})
+		})
 	}
 
 	handleClick = (e, countryCode) => {
@@ -35,7 +42,7 @@ class WorldMap extends Component {
           width: "100%",
           height: "520px"
         }}
-        onRegionClick={this.handleClick} //gets the country code
+				onRegionClick={this.handleClick} //gets the country code
         containerClassName="map"
         regionStyle={{
           initial: {
@@ -52,13 +59,13 @@ class WorldMap extends Component {
           selected: {
             fill: "#2938bc" //color for the clicked country
           },
-          selectedHover: {}
+					selectedHover: {}
         }}
         regionsSelectable={true}
         series={{
           regions: [
             {
-              values: mapData, //this is your data
+              values: this.state.mapData, //this is your data
               scale: ["#146804", "#ff0000"], //your color game's here
               normalizeFunction: "polynomial"
             }
